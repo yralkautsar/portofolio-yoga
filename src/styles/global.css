@@ -25,7 +25,7 @@ body {
 }
 
 /* utility small */
-.section-spacing {
+.section {
   @apply py-24 lg:py-32;
 }
 
