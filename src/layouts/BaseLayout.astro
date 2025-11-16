@@ -1,0 +1,27 @@
+---
+const { title = "Personal Portfolio" } = Astro.props;
+import Header from "../components/Header.astro";
+---
+
+<!doctype html>
+<html lang="en" class="antialiased">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{title}</title>
+  </head>
+
+  <body class="bg-white text-gray-800">
+    <Header />
+
+    <main class="min-h-screen flex justify-center">
+      <div class="w-full max-w-[var(--max-width)] px-6">
+        <slot />
+      </div>
+    </main>
+
+    <footer class="text-center text-sm text-gray-500 py-10">
+      © {new Date().getFullYear()} Yoga Rizky. Built with Astro • Tailwind
+    </footer>
+  </body>
+</html>

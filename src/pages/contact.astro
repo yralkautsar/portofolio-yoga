@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <section class="max-w-4xl mx-auto py-20 px-4">
+    <h1 class="text-4xl font-bold mb-4">Contact</h1>
+
+    <p class="text-gray-600 mb-6">
+      Fill the form below, or reach us on WhatsApp.
+    </p>
+
+    <form class="grid gap-4 max-w-lg">
+      <input type="text" placeholder="Your Name" class="border p-3 rounded" />
+      <input type="email" placeholder="Email" class="border p-3 rounded" />
+      <textarea placeholder="Message" class="border p-3 rounded h-32"></textarea>
+
+      <button class="px-6 py-3 bg-blue-600 text-white rounded hover:bg-blue-700">
+        Send Message
+      </button>
+    </form>
+  </section>
+</BaseLayout>
