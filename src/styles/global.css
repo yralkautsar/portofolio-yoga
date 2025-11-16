@@ -26,7 +26,7 @@ body {
 
 /* utility small */
 .section {
-  @apply py-24 lg:py-32;
+  @apply py-24;
 }
 
 /* subtle focus for accessibility */
