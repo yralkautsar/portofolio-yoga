@@ -25,8 +25,8 @@ body {
 }
 
 /* utility small */
-.section {
-  @apply py-16;
+.section-spacing {
+  @apply py-24 lg:py-32;
 }
 
 /* subtle focus for accessibility */
