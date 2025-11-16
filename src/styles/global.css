@@ -26,8 +26,12 @@ body {
 
 /* utility small */
 .section {
-  @apply py-24;
+  border: 1px dashed #d4d4d4;
+  border-radius: 6px;
+  padding: 2rem;
+  margin-bottom: 2rem;
 }
+
 
 /* subtle focus for accessibility */
 :focus {
