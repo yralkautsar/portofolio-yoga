@@ -5,6 +5,7 @@ import "../styles/global.css";
 ---
 
 <!doctype html>
+<!-- tambahkan class "dark" akan ditoggle via JS -->
 <html lang="en" class="antialiased">
   <head>
     <meta charset="utf-8" />
@@ -12,7 +13,8 @@ import "../styles/global.css";
     <title>{title}</title>
   </head>
 
-  <body class="bg-white text-gray-800">
+  <!-- Tailwind will automatically react to .dark class -->
+  <body class="bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
     <Header />
 
     <main class="min-h-screen flex justify-center">
@@ -21,8 +23,37 @@ import "../styles/global.css";
       </div>
     </main>
 
-    <footer class="text-center text-sm text-gray-500 py-10">
+    <footer class="text-center text-sm text-gray-500 dark:text-gray-400 py-10">
       © {new Date().getFullYear()} Yoga Rizky. Built with Astro • Tailwind
     </footer>
+
+    <!-- DARK MODE TOGGLE SCRIPT -->
+    <script>
+      const html = document.documentElement;
+
+      // Load saved theme
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        html.classList.add("dark");
+      } else {
+        html.classList.remove("dark");
+      }
+
+      // Listen to toggle button (will exist in Header)
+      document.addEventListener("click", (e) => {
+        if (e.target.closest("#theme-toggle")) {
+          html.classList.toggle("dark");
+          const isDark = html.classList.contains("dark");
+          localStorage.theme = isDark ? "dark" : "light";
+
+          // update icons
+          document.getElementById("theme-toggle-light").classList.toggle("hidden", !isDark);
+          document.getElementById("theme-toggle-dark").classList.toggle("hidden", isDark);
+        }
+      });
+    </script>
   </body>
 </html>
