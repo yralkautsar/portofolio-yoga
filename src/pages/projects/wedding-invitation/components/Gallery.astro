@@ -1,0 +1,18 @@
+---
+import { gallery } from "../data/gallery.js";
+---
+
+<section class="section">
+  <h2 class="text-2xl font-bold mb-6 text-center">Gallery</h2>
+
+  <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+    {gallery.map(img => (
+      <img
+        src={img}
+        class="w-full h-48 object-cover rounded-lg shadow cursor-pointer hover:scale-[1.02] transition"
+        data-type="product-image"
+        data-full={img}
+      />
+    ))}
+  </div>
+</section>
