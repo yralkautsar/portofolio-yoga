@@ -79,7 +79,12 @@ import SkillBadge from "../components/SkillBadge.astro";
     <h2 class="text-2xl font-bold mb-6">Projects</h2>
 
     <div class="grid sm:grid-cols-2 gap-6">
-      <ProjectCard title="Cafe Landing (Demo)" description="Landing page for a local cafe with menu, location and CTA." tags={['Astro','Tailwind']} />
+      <ProjectCard 
+        title="Cafe Landing (Demo)" 
+        description="Landing page for a local cafe with menu, location and CTA." 
+        tags={['Astro','Tailwind']}
+        link="/projects/cafe-landing"
+      />
       <ProjectCard title="Portfolio Template" description="Starter portfolio template built with Astro for freelancers." tags={['Astro','Design']} />
       <ProjectCard title="Catalog Site" description="Simple product catalog with images and contact integration." tags={['Static','SEO']} />
       <ProjectCard title="Internal Tools" description="Small internal dashboard prototype for operations." tags={['Vue','Prototype']} />
