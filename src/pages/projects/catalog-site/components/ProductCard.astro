@@ -2,11 +2,16 @@
 const { name, price, description, image } = Astro.props;
 ---
 
-<div class="border rounded-xl p-4 bg-white shadow-sm dark:bg-gray-900">
+<div class="border rounded-xl p-4 bg-white shadow-sm dark:bg-gray-900 
+            transition transform hover:scale-[1.02] hover:shadow-md cursor-pointer">
+
   <img 
     src={image} 
     alt={name} 
-    class="w-full h-48 object-cover rounded-lg mb-4"
+    class="w-full h-48 object-cover rounded-lg mb-4 
+           transition-transform duration-300 hover:scale-105"
+    data-full={image}
+    data-type="product-image"
   />
 
   <h3 class="font-semibold text-lg mb-1">{name}</h3>

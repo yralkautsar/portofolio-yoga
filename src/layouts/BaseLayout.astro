@@ -52,6 +52,31 @@ import "../styles/global.css";
   });
 </script>
 
+<!-- LIGHTBOX OVERLAY -->
+<div id="lightbox"
+  class="fixed inset-0 bg-black/70 backdrop-blur flex items-center justify-center z-[999] hidden">
+  <img id="lightbox-img" class="max-w-[90%] max-h-[90%] rounded-xl shadow-lg" />
+</div>
+
+<script>
+  // CLICK IMAGE -> OPEN LIGHTBOX
+  document.addEventListener("click", (e) => {
+    const img = e.target.closest("[data-type='product-image']");
+    if (!img) return;
+
+    const full = img.getAttribute("data-full");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+
+    lightboxImg.src = full;
+    lightbox.classList.remove("hidden");
+  });
+
+  // CLOSE LIGHTBOX WHEN CLICK OUTSIDE
+  document.getElementById("lightbox").addEventListener("click", () => {
+    document.getElementById("lightbox").classList.add("hidden");
+  });
+</script>
 
   </body>
 </html>
