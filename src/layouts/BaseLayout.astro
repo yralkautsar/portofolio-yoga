@@ -28,32 +28,30 @@ import "../styles/global.css";
     </footer>
 
     <!-- DARK MODE TOGGLE SCRIPT -->
-    <script>
-      const html = document.documentElement;
+  <script>
+  const html = document.documentElement;
 
-      // Load saved theme
-      if (
-        localStorage.theme === "dark" ||
-        (!("theme" in localStorage) &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
-        html.classList.add("dark");
-      } else {
-        html.classList.remove("dark");
-      }
+  // Default mode = LIGHT
+  if (localStorage.theme === "dark") {
+    html.classList.add("dark");
+  } else {
+    html.classList.remove("dark");
+    localStorage.theme = "light"; // force default
+  }
 
-      // Listen to toggle button (will exist in Header)
-      document.addEventListener("click", (e) => {
-        if (e.target.closest("#theme-toggle")) {
-          html.classList.toggle("dark");
-          const isDark = html.classList.contains("dark");
-          localStorage.theme = isDark ? "dark" : "light";
+  // Listen to toggle from Header
+  document.addEventListener("click", (e) => {
+    if (e.target.closest("#theme-toggle")) {
+      html.classList.toggle("dark");
+      const isDark = html.classList.contains("dark");
+      localStorage.theme = isDark ? "dark" : "light";
 
-          // update icons
-          document.getElementById("theme-toggle-light").classList.toggle("hidden", !isDark);
-          document.getElementById("theme-toggle-dark").classList.toggle("hidden", isDark);
-        }
-      });
-    </script>
+      document.getElementById("theme-toggle-light").classList.toggle("hidden", !isDark);
+      document.getElementById("theme-toggle-dark").classList.toggle("hidden", isDark);
+    }
+  });
+</script>
+
+
   </body>
 </html>
